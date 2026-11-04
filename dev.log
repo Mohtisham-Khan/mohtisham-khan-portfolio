@@ -1,0 +1,238 @@
+
+> mohtisham-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.250.101:3000
+✓ Ready in 736ms
+✓ Running next.config.ts took 47ms
+- Cache Components enabled
+- Partial Prefetching enabled
+
+Route / is rendering with server caches disabled. For this navigation, Component Metadata in React DevTools will not accurately reflect what is statically prerenderable and runtime prefetchable. See more info here: https://nextjs.org/docs/messages/cache-bypass-in-dev
+ GET / 200 in 1362ms (next.js: 663ms, application-code: 698ms)
+ GET / 200 in 316ms (next.js: 5ms, application-code: 311ms)
+✓ Compiled in 47ms
+ GET / 200 in 59ms (next.js: 4ms, application-code: 56ms)
+ GET / 200 in 216ms (next.js: 6ms, application-code: 210ms)
+ GET / 200 in 177ms (next.js: 4ms, application-code: 173ms)
+✓ Compiled in 43ms
+ GET / 200 in 53ms (next.js: 2ms, application-code: 51ms)
+✓ Compiled in 107ms
+ GET / 200 in 46ms (next.js: 1.6ms, application-code: 45ms)
+✓ Compiled in 30ms
+ GET / 200 in 40ms (next.js: 2ms, application-code: 38ms)
+✓ Compiled in 66ms
+ GET / 200 in 83ms (next.js: 4ms, application-code: 79ms)
+✓ Compiled in 57ms
+ GET / 200 in 55ms (next.js: 1.7ms, application-code: 54ms)
+✓ Compiled in 53ms
+ GET / 200 in 71ms (next.js: 3ms, application-code: 68ms)
+✓ Compiled in 30ms
+ GET / 200 in 82ms (next.js: 3ms, application-code: 79ms)
+✓ Compiled in 63ms
+ GET / 200 in 39ms (next.js: 1.5ms, application-code: 38ms)
+ GET / 200 in 188ms (next.js: 4ms, application-code: 185ms)
+✓ Compiled in 36ms
+ GET / 200 in 50ms (next.js: 2ms, application-code: 48ms)
+ GET / 200 in 232ms (next.js: 1.8ms, application-code: 230ms)
+✓ Compiled in 54ms
+ GET / 200 in 45ms (next.js: 1.9ms, application-code: 43ms)
+✓ Compiled in 63ms
+ GET / 200 in 55ms (next.js: 2.0ms, application-code: 53ms)
+ GET / 200 in 149ms (next.js: 1.3ms, application-code: 148ms)
+✓ Compiled in 21ms
+ GET / 200 in 53ms (next.js: 1.5ms, application-code: 51ms)
+✓ Compiled in 30ms
+ GET / 200 in 57ms (next.js: 2.0ms, application-code: 55ms)
+ GET / 200 in 140ms (next.js: 2ms, application-code: 137ms)
+✓ Compiled in 32ms
+ GET / 200 in 63ms (next.js: 2.0ms, application-code: 61ms)
+✓ Compiled in 55ms
+ GET / 200 in 62ms (next.js: 4ms, application-code: 58ms)
+✓ Compiled in 46ms
+ GET / 200 in 51ms (next.js: 1.5ms, application-code: 50ms)
+✓ Compiled in 65ms
+ GET / 200 in 120ms (next.js: 3ms, application-code: 116ms)
+ GET / 200 in 387ms (next.js: 4ms, application-code: 383ms)
+ GET / 200 in 540ms (next.js: 8ms, application-code: 532ms)
+✓ Compiled in 61ms
+ GET / 200 in 226ms (next.js: 6ms, application-code: 220ms)
+ GET / 200 in 238ms (next.js: 4ms, application-code: 234ms)
+ GET / 200 in 291ms (next.js: 4ms, application-code: 287ms)
+✓ Compiled in 43ms
+ GET / 200 in 65ms (next.js: 2ms, application-code: 63ms)
+ GET / 200 in 251ms (next.js: 3ms, application-code: 248ms)
+✓ Compiled in 487ms
+ GET / 200 in 816ms (next.js: 52ms, application-code: 764ms)
+✓ Compiled in 85ms
+ GET / 200 in 352ms (next.js: 8ms, application-code: 344ms)
+ GET / 200 in 166ms (next.js: 0.8ms, application-code: 165ms)
+ GET / 200 in 148ms (next.js: 0.6ms, application-code: 147ms)
+ GET / 200 in 224ms (next.js: 3ms, application-code: 221ms)
+ GET / 200 in 195ms (next.js: 0.6ms, application-code: 194ms)
+ GET / 200 in 179ms (next.js: 0.9ms, application-code: 178ms)
+ GET / 200 in 187ms (next.js: 1.7ms, application-code: 185ms)
+ GET / 200 in 163ms (next.js: 0.8ms, application-code: 162ms)
+ GET / 200 in 169ms (next.js: 0.6ms, application-code: 168ms)
+ GET / 200 in 283ms (next.js: 1.2ms, application-code: 282ms)
+ GET / 200 in 227ms (next.js: 1.4ms, application-code: 225ms)
+ GET / 200 in 257ms (next.js: 1.1ms, application-code: 256ms)
+ GET / 200 in 329ms (next.js: 2ms, application-code: 326ms)
+ GET / 200 in 458ms (next.js: 2ms, application-code: 455ms)
+ GET / 200 in 294ms (next.js: 1.8ms, application-code: 292ms)
+ GET / 200 in 265ms (next.js: 2ms, application-code: 263ms)
+ GET / 200 in 277ms (next.js: 1.5ms, application-code: 275ms)
+ GET / 200 in 197ms (next.js: 0.9ms, application-code: 196ms)
+ GET / 200 in 242ms (next.js: 0.9ms, application-code: 241ms)
+ GET / 200 in 287ms (next.js: 1.5ms, application-code: 285ms)
+ GET / 200 in 226ms (next.js: 0.9ms, application-code: 225ms)
+ GET / 200 in 254ms (next.js: 1.3ms, application-code: 252ms)
+ GET / 200 in 209ms (next.js: 1.0ms, application-code: 208ms)
+ GET / 200 in 223ms (next.js: 1.0ms, application-code: 222ms)
+ GET / 200 in 308ms (next.js: 2ms, application-code: 306ms)
+ GET / 200 in 185ms (next.js: 0.7ms, application-code: 185ms)
+ GET / 200 in 226ms (next.js: 1.2ms, application-code: 224ms)
+ GET / 200 in 263ms (next.js: 1.5ms, application-code: 262ms)
+ GET / 200 in 216ms (next.js: 0.9ms, application-code: 215ms)
+ GET / 200 in 209ms (next.js: 1.1ms, application-code: 208ms)
+ GET / 200 in 203ms (next.js: 0.8ms, application-code: 202ms)
+ GET / 200 in 168ms (next.js: 0.6ms, application-code: 168ms)
+✓ Compiled in 121ms
+ GET / 200 in 134ms (next.js: 5ms, application-code: 129ms)
+✓ Compiled in 43ms
+ GET / 200 in 283ms (next.js: 2ms, application-code: 280ms)
+ GET / 200 in 325ms (next.js: 4ms, application-code: 320ms)
+ GET / 200 in 205ms (next.js: 1.0ms, application-code: 204ms)
+ GET / 200 in 217ms (next.js: 2ms, application-code: 215ms)
+ GET / 200 in 191ms (next.js: 1.0ms, application-code: 190ms)
+ GET / 200 in 208ms (next.js: 0.9ms, application-code: 207ms)
+ GET / 200 in 236ms (next.js: 1.1ms, application-code: 235ms)
+ GET / 200 in 159ms (next.js: 2ms, application-code: 157ms)
+ GET / 200 in 187ms (next.js: 0.7ms, application-code: 187ms)
+✓ Compiled in 34ms
+ GET / 200 in 172ms (next.js: 4ms, application-code: 169ms)
+✓ Compiled in 37ms
+ GET / 200 in 373ms (next.js: 4ms, application-code: 368ms)
+ GET / 200 in 330ms (next.js: 3ms, application-code: 327ms)
+ GET / 200 in 334ms (next.js: 4ms, application-code: 330ms)
+ GET / 200 in 243ms (next.js: 2ms, application-code: 240ms)
+ GET / 200 in 269ms (next.js: 4ms, application-code: 265ms)
+ GET / 200 in 312ms (next.js: 2ms, application-code: 310ms)
+ GET / 200 in 181ms (next.js: 0.7ms, application-code: 181ms)
+ GET / 200 in 251ms (next.js: 1.9ms, application-code: 249ms)
+ GET / 200 in 186ms (next.js: 0.8ms, application-code: 186ms)
+✓ Compiled in 27ms
+ GET / 200 in 172ms (next.js: 5ms, application-code: 167ms)
+ GET / 200 in 204ms (next.js: 2ms, application-code: 202ms)
+ GET / 200 in 253ms (next.js: 1.8ms, application-code: 251ms)
+ GET / 200 in 222ms (next.js: 2ms, application-code: 220ms)
+ GET / 200 in 241ms (next.js: 1.4ms, application-code: 240ms)
+ GET /me.jpg 404 in 554ms (next.js: 351ms, application-code: 203ms)
+ GET /workspace.jpg 404 in 86ms (next.js: 9ms, application-code: 77ms)
+ GET / 200 in 219ms (next.js: 3ms, application-code: 216ms)
+✓ Compiled in 28ms
+ GET / 200 in 154ms (next.js: 3ms, application-code: 151ms)
+✓ Compiled in 100ms
+ GET / 200 in 154ms (next.js: 4ms, application-code: 150ms)
+✓ Compiled in 64ms
+ GET / 200 in 161ms (next.js: 6ms, application-code: 155ms)
+✓ Compiled in 100ms
+ GET / 200 in 150ms (next.js: 4ms, application-code: 146ms)
+✓ Compiled in 38ms
+ GET / 200 in 158ms (next.js: 4ms, application-code: 154ms)
+✓ Compiled in 90ms
+ GET / 200 in 193ms (next.js: 6ms, application-code: 188ms)
+✓ Compiled in 71ms
+ GET / 200 in 160ms (next.js: 10ms, application-code: 150ms)
+✓ Compiled in 66ms
+ GET / 200 in 155ms (next.js: 5ms, application-code: 151ms)
+✓ Compiled in 95ms
+ GET / 200 in 143ms (next.js: 4ms, application-code: 140ms)
+✓ Compiled in 89ms
+ GET / 200 in 156ms (next.js: 4ms, application-code: 151ms)
+✓ Compiled in 68ms
+ GET / 200 in 158ms (next.js: 4ms, application-code: 154ms)
+✓ Compiled in 71ms
+ GET / 200 in 189ms (next.js: 7ms, application-code: 182ms)
+✓ Compiled in 101ms
+ GET / 200 in 151ms (next.js: 5ms, application-code: 146ms)
+✓ Compiled in 74ms
+ GET / 200 in 146ms (next.js: 4ms, application-code: 142ms)
+✓ Compiled in 146ms
+ GET / 200 in 143ms (next.js: 4ms, application-code: 138ms)
+✓ Compiled in 85ms
+ GET / 200 in 188ms (next.js: 9ms, application-code: 179ms)
+✓ Compiled in 62ms
+ GET / 200 in 139ms (next.js: 4ms, application-code: 135ms)
+ GET / 200 in 214ms (next.js: 1.8ms, application-code: 212ms)
+✓ Compiled in 53ms
+✓ Compiled in 37ms
+✓ Compiled in 86ms
+ GET / 200 in 391ms (next.js: 3ms, application-code: 388ms)
+ GET / 200 in 314ms (next.js: 2ms, application-code: 312ms)
+ GET / 200 in 181ms (next.js: 0.8ms, application-code: 180ms)
+ GET / 200 in 313ms (next.js: 3ms, application-code: 311ms)
+ GET / 200 in 295ms (next.js: 3ms, application-code: 292ms)
+ GET / 200 in 216ms (next.js: 1.0ms, application-code: 215ms)
+ GET / 200 in 203ms (next.js: 1.0ms, application-code: 202ms)
+ GET / 200 in 211ms (next.js: 0.9ms, application-code: 210ms)
+ GET / 200 in 234ms (next.js: 1.5ms, application-code: 233ms)
+ GET / 200 in 234ms (next.js: 2ms, application-code: 231ms)
+ GET / 200 in 174ms (next.js: 0.9ms, application-code: 173ms)
+ GET / 200 in 227ms (next.js: 1.0ms, application-code: 227ms)
+ GET / 200 in 218ms (next.js: 0.9ms, application-code: 218ms)
+ GET / 200 in 192ms (next.js: 1.1ms, application-code: 191ms)
+ GET / 200 in 303ms (next.js: 2ms, application-code: 301ms)
+ GET / 200 in 216ms (next.js: 0.8ms, application-code: 215ms)
+ GET / 200 in 336ms (next.js: 1.5ms, application-code: 335ms)
+ GET / 200 in 228ms (next.js: 1.0ms, application-code: 227ms)
+ GET / 200 in 444ms (next.js: 10ms, application-code: 434ms)
+ GET / 200 in 313ms (next.js: 3ms, application-code: 310ms)
+ GET / 200 in 157ms (next.js: 1.1ms, application-code: 156ms)
+ GET / 200 in 194ms (next.js: 0.8ms, application-code: 194ms)
+ GET / 200 in 211ms (next.js: 1.0ms, application-code: 210ms)
+ GET / 200 in 269ms (next.js: 3ms, application-code: 267ms)
+ GET / 200 in 350ms (next.js: 3ms, application-code: 347ms)
+ GET / 200 in 170ms (next.js: 0.8ms, application-code: 170ms)
+✓ Compiled in 126ms
+✓ Compiled in 91ms
+✓ Compiled in 28ms
+✓ Compiled in 55ms
+ GET / 200 in 146ms (next.js: 6ms, application-code: 139ms)
+ GET / 200 in 147ms (next.js: 0.6ms, application-code: 146ms)
+ GET / 200 in 168ms (next.js: 0.6ms, application-code: 168ms)
+ GET / 200 in 212ms (next.js: 0.9ms, application-code: 211ms)
+ GET / 200 in 171ms (next.js: 0.8ms, application-code: 170ms)
+ GET / 200 in 143ms (next.js: 0.7ms, application-code: 142ms)
+ GET / 200 in 276ms (next.js: 1.6ms, application-code: 274ms)
+ GET / 200 in 221ms (next.js: 1.0ms, application-code: 220ms)
+ GET / 200 in 224ms (next.js: 1.1ms, application-code: 223ms)
+ GET / 200 in 195ms (next.js: 0.8ms, application-code: 194ms)
+ GET / 200 in 210ms (next.js: 1.6ms, application-code: 209ms)
+ GET / 200 in 235ms (next.js: 1.6ms, application-code: 233ms)
+ GET / 200 in 231ms (next.js: 1.0ms, application-code: 230ms)
+ GET / 200 in 215ms (next.js: 2ms, application-code: 213ms)
+ GET / 200 in 319ms (next.js: 3ms, application-code: 316ms)
+ GET / 200 in 288ms (next.js: 1.5ms, application-code: 286ms)
+ GET / 200 in 458ms (next.js: 2ms, application-code: 456ms)
+ GET / 200 in 208ms (next.js: 0.8ms, application-code: 207ms)
+ GET / 200 in 297ms (next.js: 3ms, application-code: 294ms)
+ GET / 200 in 245ms (next.js: 1.1ms, application-code: 244ms)
+ GET / 200 in 231ms (next.js: 0.9ms, application-code: 231ms)
+ GET / 200 in 325ms (next.js: 2ms, application-code: 323ms)
+ GET / 200 in 188ms (next.js: 1.0ms, application-code: 187ms)
+ GET / 200 in 365ms (next.js: 2ms, application-code: 363ms)
+ GET / 200 in 172ms (next.js: 2ms, application-code: 170ms)
+ GET / 200 in 211ms (next.js: 1.6ms, application-code: 209ms)
+ GET / 200 in 219ms (next.js: 0.9ms, application-code: 218ms)
+ GET / 200 in 203ms (next.js: 1.2ms, application-code: 202ms)
+ GET / 200 in 201ms (next.js: 1.5ms, application-code: 199ms)
+ GET / 200 in 221ms (next.js: 0.9ms, application-code: 220ms)
+ GET / 200 in 213ms (next.js: 0.9ms, application-code: 212ms)
+ GET / 200 in 199ms (next.js: 0.8ms, application-code: 198ms)
+ GET / 200 in 284ms (next.js: 1.2ms, application-code: 282ms)
+ GET / 200 in 274ms (next.js: 0.9ms, application-code: 273ms)
+[browser] Image with src "/images/verdo-cover-mockup.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
