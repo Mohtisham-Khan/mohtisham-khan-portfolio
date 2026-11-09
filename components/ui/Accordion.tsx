@@ -42,7 +42,7 @@ export default function Accordion({
                   <span className="type-4 pt-1">
                     {index + 1}.
                   </span>
-                  <span className="flex-1">{item.title}</span>
+                  <span className="flex-1 md:text-2xl text-2xl">{item.title}</span>
                 </span>
               ) : (
                 <span className="type-4">
