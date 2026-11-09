@@ -20,37 +20,37 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #303030;
-  --surface: #f5f5f5;
+  --background: #f7f7f4;
+  --foreground: #1f1f21;
+  --surface: #ebebe6;
   --surface-elevated: #ffffff;
-  --muted: #8f8f8f;
-  --muted-foreground: #6f6f6f;
-  --border: #dadada;
-  --accent: #6a71df;
+  --muted: #6e6e6a;
+  --muted-foreground: #4a4a45;
+  --border: #e0e0da;
+  --accent: #545cd0;
   --accent-foreground: #ffffff;
-  --input-background: #f5f5f5;
-  --focus-ring: #6a71df;
+  --input-background: #f1f1ec;
+  --focus-ring: #545cd0;
 }
 
 .dark {
-  --background: #1a1a1b;
+  --background: #151516;
   --foreground: #ffffff;
-  --surface: #333333;
-  --surface-elevated: #252525;
-  --muted: #b5b5b5;
-  --muted-foreground: #b5b5b5;
-  --border: #5c5c5c;
+  --surface: #1e1e20;
+  --surface-elevated: #262628;
+  --muted: #9a9a95;
+  --muted-foreground: #ffffff;
+  --border: #333336;
   --accent: #d0ff71;
   --accent-foreground: #303030;
-  --input-background: #1f1f1f;
+  --input-background: #1c1c1e;
   --focus-ring: #d0ff71;
 }
 
 /* Dark mode: flat #1a1a1b base with the reference's animated "noise"
    particles tiled on top (color-dodge @ 0.12, matching Portavia). */
 html.dark body {
-  background-color: #1a1a1b;
+  background-color: var(--background);
 }
 
 html.dark body::before {
@@ -72,14 +72,14 @@ html.dark body::before {
 
 @layer base {
   html {
-    background: #202020;
+    background: var(--background);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background: #202020;
-    color: var(--foreground);
+    background: var(--background);
+    color: var(--muted-foreground);
     font-family: var(--font-body);
     font-size: 16px;
     font-weight: 300;
@@ -108,7 +108,7 @@ html.dark body::before {
 
   ::selection {
     background: var(--accent);
-    color: #ffffff;
+    color: var(--accent-foreground);
   }
 
   :focus-visible {
@@ -166,16 +166,16 @@ body::after {
     letter-spacing: -0.03em;
   }
 
-  .h-2 {
+  .type-2 {
     font-family: var(--font-display);
     font-weight: 700;
     text-transform: uppercase;
     font-size: clamp(2.625rem, 4.2vw, 3.75rem);
     line-height: 1.3em;
-    letter-spacing: -0.01em;
+    letter-spacing: 0em;
   }
 
-  .h-3 {
+  .type-3 {
     font-family: var(--font-display);
     font-weight: 400;
     text-transform: uppercase;
@@ -184,7 +184,7 @@ body::after {
     letter-spacing: 0em;
   }
 
-  .h-4 {
+  .type-4 {
     font-family: var(--font-display);
     font-weight: 400;
     text-transform: uppercase;
@@ -193,10 +193,18 @@ body::after {
     letter-spacing: 0em;
   }
 
+  .h-display,
+  .type-2,
+  .type-3,
+  .type-4 {
+    color: var(--foreground);
+  }
+
   .lead {
     font-size: 1.125rem;
     line-height: 1.5em;
     font-weight: 300;
+    color: var(--muted-foreground);
   }
 
   .btn {
@@ -250,7 +258,7 @@ body::after {
 
   .btn-accent {
     background: var(--accent);
-    color: #ffffff;
+    color: var(--accent-foreground);
     font-family: var(--font-display);
     text-transform: uppercase;
     font-weight: 400;
@@ -258,7 +266,7 @@ body::after {
     line-height: 1.3em;
     letter-spacing: 0em;
     padding: 0.375rem 2.5rem 0.5rem;
-    min-height: 3rem;
+    min-height: 3.125rem;
     border-radius: 9999px;
   }
 
@@ -335,7 +343,7 @@ body::after {
   }
 
   .field::placeholder {
-    color: var(--muted-foreground);
+    color: var(--muted);
   }
 
   .field option {
@@ -357,10 +365,52 @@ body::after {
   }
 }
 
-/* Scroll-journey fallbacks: with prefers-reduced-motion the animated card is
-   not rendered, so the static portraits show instead (desktop). */
-@media (prefers-reduced-motion: reduce) and (min-width: 64rem) {
-  #hero-portrait {
+/* Reference card widths: 180px phone, 260px tablet, 340px desktop. Kept in
+   CSS so they can't be reordered by utility variants. */
+.portrait-card {
+  width: 180px;
+}
+
+@media (min-width: 810px) {
+  .portrait-card {
+    width: 260px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portrait-card {
+    width: 340px;
+  }
+}
+
+/* Portavia's avatar badge swaps the wave for a "Hi" every couple of seconds. */
+@keyframes badge-swap {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.badge-swap > span {
+  grid-area: 1 / 1;
+  animation: badge-swap 4s ease-in-out infinite;
+}
+
+.badge-swap > span + span {
+  animation-delay: -2s;
+}
+
+/* Scroll-journey fallbacks: with prefers-reduced-motion the pinned card is
+   not rendered, so the hero keeps a static portrait in the layout instead. */
+@media (prefers-reduced-motion: reduce) and (min-width: 1200px) {
+  .hero-inline-card {
     display: block;
   }
 }

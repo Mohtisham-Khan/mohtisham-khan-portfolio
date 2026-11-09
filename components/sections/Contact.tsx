@@ -38,7 +38,7 @@ function Field({
       </label>
       {children}
       {error ? (
-        <p role="alert" className="mt-2 text-sm font-light text-red-600">
+        <p role="alert" className="mt-2 text-sm font-light text-red-500">
           {error}
         </p>
       ) : null}
@@ -77,7 +77,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-28 py-24 md:py-32">
+    <section id="contact" className="scroll-mt-28 py-24 md:py-[120px]">
       <Container>
         <div className="grid items-start gap-16 lg:grid-cols-[520px_1fr] lg:gap-10">
           <div className="flex justify-center pb-10 lg:pb-0">
@@ -96,7 +96,7 @@ export default function Contact() {
                 aria-hidden="true"
                 className="absolute -bottom-16 left-[-18px] flex flex-col items-center gap-2 md:left-[-30px]"
               >
-                <span className="font-display text-[40px] leading-none font-normal text-white">
+                <span className="font-display text-foreground text-[40px] leading-none font-normal">
                   Hi
                 </span>
                 <svg
@@ -118,8 +118,9 @@ export default function Contact() {
           <div>
             <SectionHeading
               title="Let's Work Together"
+              headingClassName="text-2xl md:text-4xl font-medium"
               intro="Let's build something great together • whether it's a product UI, a design system, or your next web experience."
-              introWidth="max-w-[560px]"
+              introWidth="max-w-[500px]"
             />
 
             <form
@@ -203,7 +204,10 @@ export default function Contact() {
               </Field>
 
               <div className="mt-1">
-                <button type="submit" className="btn btn-accent cursor-pointer">
+                <button
+                  type="submit"
+                  className="btn btn-accent text-accent-foreground cursor-pointer"
+                >
                   Submit
                 </button>
               </div>
@@ -218,7 +222,7 @@ export default function Contact() {
                   directly to{" "}
                   <a
                     href={`mailto:${site.email}`}
-                    className="font-semibold underline underline-offset-4"
+                    className="text-foreground font-semibold underline underline-offset-4"
                   >
                     {site.email}
                   </a>

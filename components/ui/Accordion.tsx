@@ -33,19 +33,19 @@ export default function Accordion({
               type="button"
               aria-expanded={isOpen}
               onClick={() => setOpenId(isOpen ? null : item.id)}
-              className={`group flex w-full cursor-pointer items-center justify-between gap-6 text-left transition-colors ${
+              className={`group text-foreground md:text-2xl flex w-full cursor-pointer items-center justify-between gap-6 text-left transition-colors ${
                 isFaq ? "py-7" : "py-6"
               }`}
             >
               {isFaq ? (
                 <span className="flex flex-1 items-start gap-5">
-                  <span className="font-display pt-1 text-lg font-normal text-foreground">
+                  <span className="type-4 pt-1">
                     {index + 1}.
                   </span>
-                  <span className="h-4 flex-1">{item.title}</span>
+                  <span className="type-2 flex-1">{item.title}</span>
                 </span>
               ) : (
-                <span className="h-3">
+                <span className="type-4">
                   {item.number ? `${item.number}. ` : ""}
                   {item.title}
                 </span>
@@ -78,7 +78,7 @@ export default function Accordion({
                     {item.bullets ? (
                       <ul className="list-disc space-y-2 pl-5 marker:text-accent">
                         {item.bullets.map((bullet) => (
-                          <li key={bullet} className="text-base leading-relaxed font-light">
+                          <li key={bullet} className="text-lg leading-[27px] font-light">
                             {bullet}
                           </li>
                         ))}

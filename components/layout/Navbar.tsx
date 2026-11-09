@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { navLinks, site } from "@/data/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  // Keep in-page anchors smooth on the home page, but navigate home from the
+  // blog routes where those sections don't exist.
+  const toHome = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
 
   return (
     <header className="fixed inset-x-0 top-5 z-50 flex justify-center px-5">
@@ -15,7 +20,7 @@ export default function Navbar() {
         className="relative flex w-full max-w-[560px] items-center justify-between gap-6 rounded-[28px] border border-border bg-background/90 px-2.5 py-2 backdrop-blur-[5px] md:w-auto md:max-w-none md:gap-10"
       >
         <a
-          href="#home"
+          href={toHome("#home")}
           aria-label={`${site.name} — home`}
           className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-foreground font-display text-[15px] font-bold tracking-wider text-background transition-colors hover:bg-accent hover:text-accent-foreground"
         >
@@ -28,13 +33,20 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-5 md:flex">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link">
+            <a
+              key={link.href}
+              href={toHome(link.href)}
+              className="nav-link"
+            >
               {link.label}
             </a>
           ))}
         </div>
 
-        <a href="#contact" className="btn btn-solid hidden md:inline-flex">
+        <a
+          href={toHome("#contact")}
+          className="btn btn-solid hidden md:inline-flex"
+        >
           Contact
         </a>
 
@@ -73,7 +85,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={toHome(link.href)}
                   onClick={() => setOpen(false)}
                   className="nav-link rounded-xl px-3 py-2.5 text-lg hover:bg-surface"
                 >
@@ -81,7 +93,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={toHome("#contact")}
                 onClick={() => setOpen(false)}
                 className="btn btn-solid mt-2 w-full"
               >

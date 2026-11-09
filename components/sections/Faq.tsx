@@ -6,15 +6,15 @@ import { faqs } from "@/data/faq";
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-28 py-24 md:py-32">
+    <section id="faq" className="scroll-mt-28 py-24 md:py-[120px]">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[440px_1fr] lg:gap-20">
           <div className="lg:sticky lg:top-[100px] lg:self-start">
             <SectionHeading
               title="Frequently Asked Questions"
+              headingClassName="text-2xl md:text-4xl font-medium"
               intro="Here are answers to some of the most common questions about working with me."
               introWidth="max-w-[440px]"
-              introGap="mt-42"
             />
 
           </div>

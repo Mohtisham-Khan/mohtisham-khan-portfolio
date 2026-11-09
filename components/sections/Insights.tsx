@@ -11,6 +11,7 @@ export default function Insights() {
       <Container>
         <SectionHeading
           title="Design Insights & Ideas"
+          headingClassName="text-2xl md:text-4xl font-medium"
           intro="From frontend craft to design systems • short, practical articles about building for the web with care."
         />
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import {
   motion,
   useReducedMotion,
@@ -8,49 +8,56 @@ import {
   useTransform,
 } from "framer-motion";
 
-type Points = {
-  /** Progress where the card begins leaving the hero pose. */
-  pStart: number;
-  /** Progress of the Service pose (rotateY 150 / x 340 / scale .9). */
-  pServices: number;
-  /** Progress of the About pose (rotateY 340 / x 340 / scale 1). */
-  pAbout: number;
-};
-
 const easeInOut = (t: number) =>
   t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-const clamp = (v: number, min: number, max: number) =>
-  Math.min(Math.max(v, min), max);
+/**
+ * Portavia's avatar card: a 340 x 476 portrait with a second face on the
+ * back and a "Hi / 👋" badge pinned to the bottom-left corner.
+ */
+export function PortraitCard() {
+  const reduceMotion = useReducedMotion();
 
-function measure(wrapper: HTMLElement): Points | null {
-  const vh = window.innerHeight;
-  const wrapRect = wrapper.getBoundingClientRect();
-  if (wrapRect.height <= vh) return null;
-  const sMax = wrapRect.height - vh;
+  return (
+    <motion.div
+      initial={reduceMotion ? false : { opacity: 0, scale: 0, rotateX: -180 }}
+      animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+      transition={{ type: "spring", bounce: 0, duration: 1 }}
+      style={{ transformPerspective: 1200, transformStyle: "preserve-3d" }}
+      className="portrait-card relative aspect-[340/476] shrink-0"
+    >
+      <div className="absolute inset-0 overflow-hidden rounded-[20px] bg-surface shadow-[0_30px_60px_rgba(0,0,0,0.35)] [backface-visibility:hidden]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/portrait.png"
+          alt=""
+          draggable={false}
+          className="h-full w-full object-cover"
+        />
+      </div>
 
-  let pServices = 0.5;
-  const services = document.getElementById("services");
-  if (services) {
-    const rect = services.getBoundingClientRect();
-    const center = rect.top + window.scrollY + rect.height / 2 - vh / 2;
-    pServices = clamp(center / sMax, 0.15, 0.75);
-  }
+      <div className="absolute inset-0 overflow-hidden rounded-[20px] shadow-[0_30px_60px_rgba(0,0,0,0.35)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/lumine-studio-cover.png"
+          alt=""
+          draggable={false}
+          className="h-full w-full object-cover"
+        />
+      </div>
 
-  let pAbout = 0.85;
-  const about = document.getElementById("about");
-  if (about) {
-    const rect = about.getBoundingClientRect();
-    const top = rect.top + window.scrollY;
-    pAbout = clamp((top + 0.4 * rect.height - vh) / sMax, pServices + 0.12, 0.97);
-  }
-
-  return { pStart: 0.05, pServices, pAbout };
+      <div className="badge-swap absolute -bottom-8 -left-8 grid h-16 w-16 place-items-center rounded-full bg-[#D5FF6B] text-[#202020] shadow-[0_18px_45px_rgba(213,255,107,0.35)] min-[1200px]:-bottom-12 min-[1200px]:-left-12 min-[1200px]:h-24 min-[1200px]:w-24 [transform:translateZ(40px)]">
+        <span className="text-2xl leading-none min-[1200px]:text-4xl">👋</span>
+        <span className="font-display text-xl leading-none font-semibold min-[1200px]:text-2xl">
+          Hi
+        </span>
+      </div>
+    </motion.div>
+  );
 }
 
 export default function PortraitJourney({ children }: { children: ReactNode }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [points, setPoints] = useState<Points | null>(null);
   const reduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -58,122 +65,68 @@ export default function PortraitJourney({ children }: { children: ReactNode }) {
     offset: ["start start", "end end"],
   });
 
-  const pStart = points?.pStart ?? 0.05;
-  const pServices = points?.pServices ?? 0.5;
-  const pAbout = points?.pAbout ?? 0.85;
-
-  // Portavia's exact scroll targets, driven continuously by scroll progress:
+  // Portavia's scroll targets, driven continuously by the sticky track:
   //   x       0 → 340 → 340
   //   rotateY 0 → 150 → 340
   //   rotate  0 → 10  → 5
   //   scale   1 → .9  → 1
-  // y stays 0 in the reference - the card only drifts right and flips.
-  const x = useTransform(
-    scrollYProgress,
-    [0, pStart, pServices, pAbout, 1],
-    [0, 0, 340, 340, 340],
-    { clamp: true, ease: easeInOut },
-  );
+  // The card stops (x 340 / rotateY 340) for the final 15% of the track, then
+  // unpins and scrolls away with the journey.
+  const stops = [0, 0.05, 0.5, 0.85, 1];
 
-  const rotateY = useTransform(
-    scrollYProgress,
-    [0, pStart, pServices, pAbout, 1],
-    [0, 0, 150, 340, 340],
-    { clamp: true, ease: easeInOut },
-  );
+  const x = useTransform(scrollYProgress, stops, [0, 0, 340, 340, 340], {
+    clamp: true,
+    ease: easeInOut,
+  });
 
-  const rotate = useTransform(
-    scrollYProgress,
-    [0, pStart, pServices, pAbout, 1],
-    [0, 0, 10, 5, 5],
-    { clamp: true, ease: easeInOut },
-  );
+  const rotateY = useTransform(scrollYProgress, stops, [0, 0, 150, 340, 340], {
+    clamp: true,
+    ease: easeInOut,
+  });
 
-  const scale = useTransform(
-    scrollYProgress,
-    [0, pStart, pServices, pAbout, 1],
-    [1, 1, 0.9, 1, 1],
-    { clamp: true, ease: easeInOut },
-  );
+  const rotate = useTransform(scrollYProgress, stops, [0, 0, 10, 5, 5], {
+    clamp: true,
+    ease: easeInOut,
+  });
 
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-
-    const run = () => setPoints(measure(wrapper));
-    run();
-
-    const observer = new ResizeObserver(run);
-    observer.observe(wrapper);
-    window.addEventListener("resize", run);
-    if (document.fonts) document.fonts.ready.then(run).catch(() => {});
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", run);
-    };
-  }, []);
-
-  if (reduceMotion) return <>{children}</>;
+  const scale = useTransform(scrollYProgress, stops, [1, 1, 0.9, 1, 1], {
+    clamp: true,
+    ease: easeInOut,
+  });
 
   return (
     <div ref={wrapperRef} className="relative">
-      {/* Portavia's `Sticky Wrap` = 300vh track with the card pinned in a
-          sticky 100vh viewport container while content scrolls past. */}
+      {/* The hero is transparent at desktop so this dark plate can sit behind
+          the pinned card while the hero copy paints above it. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 z-0 hidden lg:block"
-      >
-        <div className="relative h-[300vh]">
-          <div className="sticky top-0 flex h-svh items-center justify-center overflow-hidden">
+        className="pointer-events-none absolute inset-x-0 top-0 hidden h-svh bg-[#202020] min-[1200px]:block"
+      />
+
+      {!reduceMotion && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 hidden min-[1200px]:block"
+        >
+          <div className="sticky top-0 flex h-svh items-center justify-center">
             <motion.div
-              initial={{ opacity: 1, scale: 0, rotateX: -180 }}
-              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 1 }}
               style={{
+                x,
+                rotate,
+                rotateY,
+                scale,
                 transformPerspective: 1200,
                 transformStyle: "preserve-3d",
+                willChange: "transform",
               }}
-              className="relative aspect-[340/476] w-[340px]"
             >
-              <motion.div
-                className="absolute inset-0"
-                style={{
-                  x,
-                  rotateY,
-                  rotate,
-                  scale,
-                  transformPerspective: 1200,
-                  transformStyle: "preserve-3d",
-                  willChange: "transform",
-                }}
-              >
-                <div className="absolute inset-0 overflow-hidden rounded-[20px] bg-surface [backface-visibility:hidden]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/portrait.png"
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-[20px] bg-foreground text-background [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                  <span className="font-display text-[84px] leading-none font-bold tracking-tight">
-                    MK
-                  </span>
-                  <span className="h-4 opacity-70">UI Engineer</span>
-                </div>
-
-                <div className="absolute bottom-5 left-5 z-10 rounded-full bg-accent px-4 py-2 text-sm font-semibold whitespace-nowrap text-accent-foreground shadow-[0_10px_30px_rgba(0,0,0,0.18)] [transform:translateZ(36px)]">
-                  Hi 👋
-                </div>
-              </motion.div>
+              <PortraitCard />
             </motion.div>
           </div>
         </div>
-      </div>
+      )}
 
-      <div className="relative z-20">{children}</div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

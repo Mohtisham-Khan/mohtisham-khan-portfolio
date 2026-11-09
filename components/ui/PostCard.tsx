@@ -23,16 +23,16 @@ export default function PostCard({
           />
         </div>
 
-        <div className="flex items-center gap-4 text-sm font-light">
+        <div className="flex items-center gap-4 text-base font-light">
           <span className="text-accent">{post.tag}</span>
-          <span className="text-muted">{post.dateLabel}</span>
+          <span className="text-foreground">{post.dateLabel}</span>
         </div>
 
-        <h3 className="h-3 transition-colors group-hover:text-accent">
+        <h3 className="type-3 transition-colors group-hover:text-accent">
           {post.title}
         </h3>
 
-        <p className="text-sm leading-relaxed font-light mt-6">{post.excerpt}</p>
+        <p className="text-base leading-relaxed font-light">{post.excerpt}</p>
       </Link>
     </Reveal>
   );

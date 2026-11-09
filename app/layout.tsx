@@ -55,9 +55,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html suppressHydrationWarning
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${antonio.variable} ${inter.variable} h-full antialiased`}
+      className={`${antonio.variable} ${inter.variable} bg-background h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="bg-background flex min-h-full flex-col">
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

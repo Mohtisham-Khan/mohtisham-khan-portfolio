@@ -5,7 +5,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const CARD = {
   front: "/images/portrait.png",
-  back: "/images/project-1.png",
+  back: "/images/lumine-studio-cover.png",
   // Must stay in sync with the headline gap in Hero.tsx:
   //   md:gap-[calc(clamp(200px,24vw,340px)_+_1.5rem)]
   // The card width has to fit inside that gap, so both use the same clamp.

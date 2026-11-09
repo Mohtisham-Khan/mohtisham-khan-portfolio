@@ -17,7 +17,7 @@ export default function BlogIndexPage() {
       <Container>
         <Reveal>
           <h1 className="h-display">Insights</h1>
-          <p className="lead mt-20 max-w-[500px]">
+          <p className="lead mt-5 max-w-[500px]">
             Practical notes on frontend craft, design systems, and performance
             - written to be useful, not just published.
           </p>

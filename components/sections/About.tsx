@@ -7,8 +7,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { site, socials } from "@/data/site";
 
 const stats = [
-  { value: "—", label: "Years of Experience" },
-  { value: "—", label: "Completed Projects" },
+  { value: "01", label: "Years of Experience" },
+  { value: "03", label: "Completed Projects" },
   { value: "—", label: "Core Technologies" },
 ];
 
@@ -21,26 +21,31 @@ const iconMap = {
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-28 py-24 md:py-32">
+    <section
+      id="about"
+      className="scroll-mt-28 py-24 md:py-32 min-[1200px]:flex min-[1200px]:min-h-svh min-[1200px]:items-center"
+    >
       <Container>
         <div className="grid gap-14 lg:grid-cols-[1fr_394px] lg:gap-20">
           <div>
             <SectionHeading
               title="About Me"
+              headingClassName="text-extrabold md:text-4xl text-2xl mb-1"
               intro={`Hi, I'm ${site.name} • UI Engineer & Frontend Developer passionate about building interfaces that feel fast, look sharp, and work for everyone.`}
-              introWidth="max-w-[520px]"
+              introWidth="max-w-[500px]"
+              introGap="mt-5"
             />
 
             <Reveal delay={0.1}>
-              <dl className="mt-12 grid max-w-[600px] grid-cols-3 gap-4">
+              <dl className="mt-10 grid max-w-[600px] grid-cols-3 gap-4">
                 {stats.map((stat) => (
                   <div key={stat.label}>
                     <dt className="sr-only">{stat.label}</dt>
                     <dd>
-                      <span className="font-display text-[clamp(2.5rem,4.2vw,3.75rem)] leading-none font-bold text-foreground">
+                      <span className="font-display text-[clamp(2.5rem,4.2vw,3.75rem)] leading-none font-bold text-accent">
                         {stat.value}
                       </span>
-                      <span className="mt-3 block text-[15px] leading-snug font-semibold md:text-lg">
+                      <span className="mt-1 block text-lg leading-[1.3] font-semibold text-foreground">
                         {stat.label}
                       </span>
                     </dd>
@@ -50,21 +55,21 @@ export default function About() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="mt-12 grid max-w-[420px] grid-cols-2 gap-6">
-                <div>
-                  <p className="text-base font-light">Call Today :</p>
+              <div className="mt-10 grid max-w-[420px] grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="min-w-0">
+                  <p className="text-lg font-semibold text-foreground">Call Today :</p>
                   <a
                     href={`tel:${site.phoneHref}`}
-                    className="mt-1 block text-base font-semibold underline underline-offset-4 transition-colors hover:text-accent"
+                    className="mt-1 block text-lg font-light text-accent transition-colors hover:text-foreground"
                   >
                     {site.phoneDisplay}
                   </a>
                 </div>
-                <div>
-                  <p className="text-base font-light">Email :</p>
+                <div className="min-w-0">
+                  <p className="text-lg font-semibold text-foreground">Email :</p>
                   <a
                     href={`mailto:${site.email}`}
-                    className="mt-1 inline-block text-base font-semibold break-words underline underline-offset-4 transition-colors hover:text-accent"
+                    className="mt-1 inline-flex text-lg font-light text-accent transition-colors hover:text-foreground"
                   >
                     {site.email}
                   </a>
@@ -103,7 +108,7 @@ export default function About() {
               alt="Abstract monogram artwork standing in for a portrait of Mohtisham Khan"
               width={394}
               height={503}
-              className="aspect-[394/503] w-full rounded-[20px] object-cover lg:opacity-0"
+              className="aspect-[394/503] w-full rounded-[20px] object-cover min-[1200px]:opacity-0"
             />
           </Reveal>
         </div>

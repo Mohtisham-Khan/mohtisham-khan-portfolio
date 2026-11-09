@@ -4,18 +4,22 @@ export default function SectionHeading({
   title,
   intro,
   className = "",
+  headingClassName = "type-1",
   introWidth = "max-w-[500px]",
-  introGap = "mt-20",
+  introGap = "mt-5",
 }: {
   title: string;
   intro?: string;
   className?: string;
+  headingClassName?: string;
   introWidth?: string;
   introGap?: string;
 }) {
   return (
     <Reveal className={className}>
-      <h2 className="h-2">{title}</h2>
+      <div>
+        <h2 className={headingClassName}>{title}</h2>
+      </div>
       {intro ? <p className={`lead ${introGap} ${introWidth}`}>{intro}</p> : null}
     </Reveal>
   );

@@ -6,11 +6,15 @@ import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-28 py-24 md:py-32">
+    <section
+      id="services"
+      className="scroll-mt-28 py-24 md:py-32 min-[1200px]:flex min-[1200px]:min-h-svh min-[1200px]:items-center"
+    >
       <Container>
         <div className="max-w-[600px]">
           <SectionHeading
             title="What I Can Do For You"
+            headingClassName="text-extrabold md:text-4xl text-2xl"
             intro="I turn product ideas and designs into clear, accessible interfaces crafted with care for detail, motion, and performance."
           />
 

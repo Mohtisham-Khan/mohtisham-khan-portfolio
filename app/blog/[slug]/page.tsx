@@ -46,12 +46,12 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <Reveal>
           <div className="flex items-center gap-4 text-sm font-light">
             <span className="text-accent">{post.tag}</span>
-            <span className="text-muted">
+            <span className="text-foreground">
               <time dateTime={post.date}>{post.dateLabel}</time>
             </span>
           </div>
 
-          <h1 className="h-2 mt-5 max-w-[900px]">{post.title}</h1>
+          <h1 className="type-2 mt-5 max-w-[900px]">{post.title}</h1>
           <p className="lead mt-5 max-w-[700px]">{post.excerpt}</p>
         </Reveal>
 
@@ -72,7 +72,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             {post.body.map((block, index) => {
               if (block.type === "h2") {
                 return (
-                  <h2 key={index} className="h-3 pt-4">
+                  <h2 key={index} className="type-3 pt-4">
                     {block.text}
                   </h2>
                 );
