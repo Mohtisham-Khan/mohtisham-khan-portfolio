@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 import { PortraitCard } from "@/components/sections/PortraitJourney";
 
 const description =
-  "I turn product ideas and designs into clear, accessible interfaces • crafted with care for detail, motion, and performance";
+  "I'm a Pakistan-based UI Engineer turning Figma designs into pixel-perfect experiences.";
 
 const headline =
   "font-display text-[clamp(100px,8.34vw,120px)] leading-[1.1] font-bold tracking-[-0.03em] text-white uppercase";
@@ -32,7 +32,7 @@ export default function Hero() {
               <span className="block font-display text-[32px] leading-[1.3] font-normal text-white uppercase">
                 {site.name}
               </span>
-              <span className={`mt-[4px] md:ml-12 block ${headline}`}>UI</span>
+              <span className={`mt-[4px] block ${headline}`}>User Interface</span>
             </div>
           </div>
 
@@ -44,9 +44,9 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="translate-y-[46px] self-center text-left">
+          <div className="translate-y-[68px] self-end text-left">
             <span className={`block ${headline}`}>Engineer</span>
-            <p className="mt-[11px] max-w-[348px] text-right text-[18px] leading-[1.5] font-light text-white">
+            <p className="mt-[11px] max-w-[358px] text-right text-[18px] leading-[1.5] font-light text-white">
               {description}
             </p>
           </div>
@@ -58,11 +58,11 @@ export default function Hero() {
           <span className="font-display text-[24px] leading-[1.3] font-normal text-white uppercase md:text-[28px]">
             {site.name}
           </span>
-          <span className={headlineStack}>Frontend</span>
+          <span className={headlineStack}>USER INTERFACE</span>
           <div className="my-6">
             <PortraitCard />
           </div>
-          <span className={headlineStack}>Developer</span>
+          <span className={headlineStack}>ENGINEER</span>
           <p className="max-w-[420px] text-base leading-[1.5] font-light text-white md:text-lg">
             {description}
           </p>

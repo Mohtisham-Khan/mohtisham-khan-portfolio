@@ -6,9 +6,9 @@ import { faqs } from "@/data/faq";
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-28 py-24 md:py-[120px]">
+    <section id="faq" className="scroll-mt-28 py-0 md:py-[120px]">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[440px_1fr] lg:gap-20">
+        <div className="grid gap-6 lg:grid-cols-[440px_1fr] lg:gap-20">
           <div className="lg:sticky lg:top-[100px] lg:self-start">
             <SectionHeading
               title="Frequently Asked Questions"

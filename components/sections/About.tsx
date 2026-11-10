@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-28 py-24 md:py-32 min-[1200px]:flex min-[1200px]:min-h-svh min-[1200px]:items-center"
+      className="scroll-mt-28 py-0 md:py-32 min-[1200px]:flex min-[1200px]:min-h-svh min-[1200px]:items-center"
     >
       <Container>
         <div className="grid gap-14 lg:grid-cols-[1fr_394px] lg:gap-20">
